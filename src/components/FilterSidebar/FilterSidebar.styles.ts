@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Theme } from '@/styles/theme';
 
-export const SidebarContainer = styled.div<{ visible: boolean }>`
+export const SidebarContainer = styled.div<{ isVisible: boolean }>`
   position: fixed;
   left: 0;
   top: 0;
@@ -9,7 +9,7 @@ export const SidebarContainer = styled.div<{ visible: boolean }>`
   height: 100%;
   background: ${({ theme }: { theme: Theme }) => theme.colors.background};
   border-right: 1px solid ${({ theme }: { theme: Theme }) => theme.colors.border};
-  transform: ${({ visible }) => (visible ? 'translateX(0)' : 'translateX(-100%)')};
+  transform: ${({ isVisible }) => (isVisible ? 'translateX(0)' : 'translateX(-100%)')};
   transition: transform 0.3s ease;
   padding: ${({ theme }: { theme: Theme }) => theme.spacing.large};
   box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
@@ -52,6 +52,10 @@ export const FilterInput = styled.input`
   margin-right: 0.5rem;
 `;
 
+export const FilterLabel = styled.label`
+  cursor: pointer;
+`;
+
 export const PriceRangeLabel = styled.label`
   display: block;
   margin: 0.5rem 0;
@@ -66,7 +70,7 @@ export const PriceRangeInput = styled.input`
   border-radius: ${({ theme }: { theme: Theme }) => theme.spacing.small};
 `;
 
-export const FilterButton = styled.button`
+export const ApplyButton = styled.button`
   background: ${({ theme }: { theme: Theme }) => theme.colors.primary};
   border: none;
   color: white;

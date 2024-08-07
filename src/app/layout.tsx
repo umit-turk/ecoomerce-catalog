@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useState } from 'react';
 import Footer from "@/components/Footer/Footer";
 import { Provider } from "react-redux";

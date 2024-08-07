@@ -6,19 +6,20 @@ import {
   FilterTitle,
   FilterOption,
   FilterInput,
+  FilterLabel,
   PriceRangeLabel,
   PriceRangeInput,
-  FilterButton
+  ApplyButton
 } from './FilterSidebar.styles';
 import useCategories from '@/hooks/useCategories';
 
 interface FilterSidebarProps {
-  visible: boolean;
+  isVisible: boolean;
   onClose: () => void;
   onFilterChange: (category: string, minPrice: number | undefined, maxPrice: number) => void;
 }
 
-const FilterSidebar: FC<FilterSidebarProps> = ({ visible, onClose, onFilterChange }) => {
+const FilterSidebar: FC<FilterSidebarProps> = ({ isVisible, onClose, onFilterChange }) => {
   const { categories, loading, error } = useCategories();
   const [selectedCategory, setSelectedCategory] = useState<string>(''); // Default to '' for "All"
   const [minPrice, setMinPrice] = useState<number | undefined>(0);
@@ -35,7 +36,7 @@ const FilterSidebar: FC<FilterSidebarProps> = ({ visible, onClose, onFilterChang
   };
 
   return (
-    <SidebarContainer visible={visible}>
+    <SidebarContainer isVisible={isVisible}>
       <CloseButton onClick={onClose}>Close</CloseButton>
       <FilterSection>
         <FilterTitle>Category</FilterTitle>
@@ -44,23 +45,25 @@ const FilterSidebar: FC<FilterSidebarProps> = ({ visible, onClose, onFilterChang
         <FilterOption>
           <FilterInput
             type="radio"
+            id="all"
             name="category"
             value=""
             checked={selectedCategory === ''}
             onChange={() => setSelectedCategory('')}
           />
-          All
+          <FilterLabel htmlFor="all">All</FilterLabel>
         </FilterOption>
         {categories.map((category) => (
           <FilterOption key={category}>
             <FilterInput
               type="radio"
+              id={category}
               name="category"
               value={category}
               checked={selectedCategory === category}
               onChange={() => setSelectedCategory(category)}
             />
-            {category}
+            <FilterLabel htmlFor={category}>{category}</FilterLabel>
           </FilterOption>
         ))}
       </FilterSection>
@@ -83,7 +86,7 @@ const FilterSidebar: FC<FilterSidebarProps> = ({ visible, onClose, onFilterChang
           />
         </PriceRangeLabel>
       </FilterSection>
-      <FilterButton onClick={handleFilter}>Apply Filters</FilterButton>
+      <ApplyButton onClick={handleFilter}>Apply Filters</ApplyButton>
     </SidebarContainer>
   );
 };

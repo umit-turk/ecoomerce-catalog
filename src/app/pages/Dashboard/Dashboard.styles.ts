@@ -43,7 +43,7 @@ export const FilterButton = styled.button`
   }
 `;
 
-export const ButtonContainer = styled.div`
+export const SearchContainer = styled.div`
   max-width: 1200px;
   display: flex;
   align-items: center;
