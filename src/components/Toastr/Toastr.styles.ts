@@ -1,12 +1,23 @@
 import styled from 'styled-components';
 
-type ToastrType = 'success' | 'error';
+type ToastrType = 'success' | 'error' | 'warning';
 
 export const ToastrContainer = styled.div<{ show: boolean; type: ToastrType }>`
   position: fixed;
   top: 20px;
   right: 20px;
-  background: ${({ type }) => (type === 'success' ? 'green' : 'red')};
+  background: ${({ type }) => {
+    switch (type) {
+      case 'success':
+        return 'green';
+      case 'error':
+        return 'red';
+      case 'warning':
+        return 'yellow';
+      default:
+        return 'transparent';
+    }
+  }};
   color: white;
   padding: 15px 30px;
   border-radius: 8px;

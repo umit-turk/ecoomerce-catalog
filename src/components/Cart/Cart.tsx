@@ -3,7 +3,7 @@
 import { FC } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppDispatch, RootState } from '../../store';
-import { removeProductFromCart, increaseQuantity, decreaseQuantity } from '../../features/cartSlice';
+import { removeProductFromCart, increaseQuantity, decreaseProductQuantity } from '../../features/cartSlice';
 import { 
   CartContainer, 
   CartHeader, 
@@ -38,7 +38,7 @@ const Cart: FC<CartProps> = ({ onClose }) => {
   };
 
   const handleDecrease = (id: number) => {
-    dispatch(decreaseQuantity(id));
+    dispatch(decreaseProductQuantity(id));
   };
 
   const total = cartItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0);

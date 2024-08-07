@@ -26,7 +26,7 @@ const FilterSidebar: FC<FilterSidebarProps> = ({ visible, onClose, onFilterChang
 
   const handleFilter = () => {
     onFilterChange(selectedCategory, minPrice === undefined || minPrice < 0 ? 0 : minPrice, maxPrice);
-    // onClose();
+    onClose();
   };
 
   const handleMinPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {

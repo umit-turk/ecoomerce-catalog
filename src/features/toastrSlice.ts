@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 interface ToastrState {
   message: string;
   show: boolean;
-  type: 'success' | 'error'; // Define type here
+  type: 'success' | 'error' | 'warning'; // Define type here
 }
 
 const initialState: ToastrState = {
@@ -16,7 +16,7 @@ const toastrSlice = createSlice({
   name: 'toastr',
   initialState,
   reducers: {
-    showToastr(state, action: PayloadAction<{ message: string; type: 'success' | 'error' }>) {
+    showToastr(state, action: PayloadAction<{ message: string; type: 'success' | 'error' | 'warning' }>) {
       state.message = action.payload.message;
       state.show = true;
       state.type = action.payload.type; // Set type here

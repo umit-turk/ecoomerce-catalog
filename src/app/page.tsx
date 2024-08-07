@@ -20,7 +20,7 @@ const Home: FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const { products, status, setFilter } = useProducts(searchQuery);
   const [isCartVisible, setIsCartVisible] = useState(false);
-  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 
   const handleCartToggle = () => setIsCartVisible(!isCartVisible);
   const handleSidebarToggle = () => setIsSidebarVisible(!isSidebarVisible);
