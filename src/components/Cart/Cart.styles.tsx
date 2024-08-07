@@ -28,15 +28,15 @@ export const CartTitle = styled.h2`
 export const CloseButton = styled.button`
   background: none;
   border: none;
-  font-size: 2rem; /* Increased font size for larger button */
-  padding: 10px 15px; /* Added padding for better clickable area */
+  font-size: 2rem;
+  padding: 10px 15px; 
   cursor: pointer;
   color: ${({ theme }: { theme: Theme }) => theme.colors.black};
-  border-radius: 5px; /* Optional: rounded corners for a better look */
+  border-radius: 5px;
   
   &:hover {
     color: ${({ theme }: { theme: Theme }) => theme.colors.primary};
-    background-color: ${({ theme }: { theme: Theme }) => theme.colors.background}; /* Optional: add a background color on hover */
+    background-color: ${({ theme }: { theme: Theme }) => theme.colors.background};
   }
 `;
 

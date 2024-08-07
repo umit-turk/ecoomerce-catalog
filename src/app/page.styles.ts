@@ -29,7 +29,7 @@ export const FilterButton = styled.button`
   height: 30px;
   padding: 0 1rem;
   border: none;
-  background-color: #007BFF; /* Adjust color as needed */
+  background-color: #007BFF;
   color: white;
   border-radius: 4px;
   cursor: pointer;
@@ -39,7 +39,7 @@ export const FilterButton = styled.button`
   justify-content: center;
 
   &:hover {
-    background-color: #0056b3; /* Adjust hover color as needed */
+    background-color: #0056b3; 
   }
 `;
 
